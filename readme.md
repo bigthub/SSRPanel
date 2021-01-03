@@ -113,6 +113,7 @@ HTTPS
 将 .env 文件里的 REDIRECT_HTTPS 值改为true，则全站强制走https
 境内部署
 部署于大陆服务器上时，请在composer.json目录下得config后面加入如下配置，用于组件下载加速
+
 "repositories": {
     "packagist": {
         "type": "composer",
@@ -138,6 +139,7 @@ User=root
 Type=simple
 # 根据自己的实际路径修改下一行
 ExecStart=/root/vnet -cfg /root/vnetconfig.json >vnet.log 2>&1
+
 Restart=always
 
 [Install]
@@ -145,7 +147,9 @@ WantedBy=multi-user.target
 设置开机启动
 
 systemctl daemon-reload
+
 systemctl enable vnet.service
+
 systemctl start vnet.service
 ## License
 
